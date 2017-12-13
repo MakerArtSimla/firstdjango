@@ -7,10 +7,11 @@ def home(request):
     # return HttpResponse("Welcome to my Portfolio!")
 
 # In alphabetical order from here onwards
+def about(request):
+    return render(request, 'portfolio/about.html')
+
 def addProject(request):
     return render(request, 'portfolio/project.html', {'projectName': request.GET['projectName']})
-    # return HttpResponse("I see you want to add a new project named: " +
-    #     request.GET['projectName'])
 
 
 def project_list(request):
