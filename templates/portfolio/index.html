@@ -1,22 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Portfolio Home</title>
 </head>
 <body>
-  <h1>Welcome to my Portfolio!</h1>
+  <h1>Welcome to My Portfolio!</h1>
 
   <p>
-  We are a group of Django enthusiasts with the following idiosyncrasies:
-    <ol>
-      <li>We only eat bananas on Saturdays.</li>
-      <li>We love making playing football on rainy days.</li>
-      <li>We like to stand on our heads.</li>
-    </ol>
+      In this portfolio, you can showcase some of your past and current projects, such as:
+      <ul>
+          <li>Personal projects (hobbies, personal endaevours and achievements)</li>
+          <li>Work projects (projects which you contributed to at work)</li>
+          <li>Study projects (learning exercises and practices during formal and informal study)</li>
+      </ul>
   </p>
+
+
+   <form action="{% url 'addProject' %}">
+       <button type="submit" name="addProject" value="submit">Add New Project</button>
+      <label for="projectName">Project title: </label>
+      <input type="text" name="projectName" value="enter project name"/>
+  </form>
+
+
+
   <p>
-    See our <a href="{% url 'project_list' %}">Projects</a>
+    See <a href="{% url 'project_list' %}">All My Projects</a>
   </p>
 
 </body>
