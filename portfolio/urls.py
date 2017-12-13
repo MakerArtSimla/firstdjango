@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^projects$', views.project_list, name='project_list'),
     url(r'^addProject$', views.addProject, name='addProject'),
     url(r'^saveProject$', views.saveProject, name='saveProject'),
+    url(r'^about$', views.about, name='about'),
 ]
