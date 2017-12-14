@@ -24,7 +24,10 @@ urlpatterns = [
     url(r'^portfolio/', include('portfolio.urls')),
     url(r'^blog/', include('blog.urls')),
 
-    #the following would be to directly list a url for a view in the portfolio app - not recommended
+    #the following are for top level views, for the overall site/django project
     url(r'^$', views.home, name='home'),
+    url(r'^index', views.home, name='home'),
+    url(r'^home', views.home, name='home'),
+    url(r'^about', views.about, name='about'),
 
 ]

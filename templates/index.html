@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MySite Home</title>
+</head>
+<body>
+  <h1>FIRST DJANGO PROJECT HOME PAGE</h1>
+
+  <p>
+I have two apps:
+  </p>
+
+
+  <nav>
+      <ul>
+          <li><a href="{% url 'portfolioHome' %}">Portfolio</a></li>
+          <li><a href="{% url 'blogHome' %}">Blog</a></li>
+      </ul>
+  </nav>
+
+</body>
+</html>
