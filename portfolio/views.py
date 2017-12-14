@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def home(request):
+def portHome(request):
     return render(request, 'portfolio/index.html')
     # return HttpResponse("Welcome to my Portfolio!")
 
