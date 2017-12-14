@@ -9,6 +9,6 @@ from . import views
 
 urlpatterns = [
     # url(r'^$', views.home,name='home'),
-    url(r'^$', views.blogHome, name='blogHome'),
-    url(r'^post$', views.blogPost, name='blogPost'),
+    url(r'^$', views.home, name='blogHome'),
+    url(r'^post$', views.post, name='blogPost'),
 ]

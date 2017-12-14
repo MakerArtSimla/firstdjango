@@ -1,12 +1,12 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
 
-def blogHome(request):
-    # return render(request, 'blogHome.html')
-    return HttpResponse("Welcome to My Journey!")
+def home(request):
+    return render(request, 'blog/index.html')
+ # HttpResponse("Welcome to My Journey!")
 
 # In alphabetical order from here onwards
-def blogPost(request):
-    return HttpResponse("Here's the story of my journey through IT")
+def post(request):
+    return HttpResponse("Here's my first post")
