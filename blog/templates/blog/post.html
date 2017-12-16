@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Blog Post</title>
+    </head>
+    <body>
+        <h1>My Journey</h1>
+        <h2>Blog Post</h2>
+
+        <!-- <form action="{% url 'post' %}"> -->
+        <form>
+            <label for="postTitle">Title: </label>
+            <input type="text" name="postTitle" value="{{ post.title }}" />
+            <label for="postText">Text: </label>
+            <input type="text" name="projectDescription" value="{{ post.text }}" />
+           <!-- <button type="submit" name="saveProject" value="submit">Save Project</button> -->
+           <!-- the view will save project to database -->
+        </form>
+
+
+        <h2>Navigation</h2>
+        <nav>
+             <ul>
+                 <li><a href="{% url 'home' %}">Home</a></li>
+                 <li><a href="{% url 'blogHome' %}">Blog Home</a></li>
+             </ul>
+        </nav>
+
+    </body>
+</html>

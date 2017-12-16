@@ -3,19 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>My Journey</title>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
+
 </head>
 <body>
   <h1>My Journey</h1>
-  <h2>A blog of my journey through IT</h2>
-
   <p>"Welcome to My Journey!"</p>
-  <a href="{% url 'blogPost' %}">First Post</a>
 
-  <nav>
+  <h2>Recent Posts</h2>
+<ul>
+
+
+  {% for post in posts.all %}
+  <h3><a href="{% url 'blogPost' %}">{{ post.title }}</a></h3>
+  <p>
+      {{ post.publishDateShort }}
+      <br />
+      {{ post.summary }}
+  </p>
+  {% load static %}
+  <!-- <img src="{% static '/blog/assets/20171214_193330.jpg' %}'" alt="{{ post.altImage }}" /> -->
+  <img src="{{ post.image.url }}" height="100px" alt="{{ post.altImage }}"/>
+
+
+  {% endfor %}
+  </ul>
+  <!-- <a href="{% url 'blogPost' %}">First Post</a> -->
+ <h2>Navigation</h2>
+ <nav>
       <ul>
           <li><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'blogHome' %}">Blog Home</a></li>
       </ul>
+</nav>
 
 </body>
 </html>
