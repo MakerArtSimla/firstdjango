@@ -135,4 +135,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/dev/topics/files/
 # and the media url is the associated url for the uploaded file.
 MEDIA_URL = '/assets/'
-MEDIA_ROOT = BASE_DIR
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
