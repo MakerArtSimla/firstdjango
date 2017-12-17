@@ -1,12 +1,18 @@
 h1 {
     font-family: sans-serif;
-    color: magenta;
+    color: red;
 }
 
 h2 {
     font-family: sans-serif;
     color: purple;
 }
+
+h3 {
+    font-family: Geneva;
+    color: blue;
+}
+
 a {
     font-family: sans-serif;
 }

@@ -10,5 +10,5 @@ from . import views
 urlpatterns = [
     # url(r'^$', views.home,name='home'),
     url(r'^$', views.home, name='blogHome'),
-    url(r'^post$', views.post, name='blogPost'),
+    url(r'^post(?P<post_id>[0-9]+)/$', views.post, name='post'),
 ]

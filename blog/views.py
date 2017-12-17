@@ -1,17 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Post
 
 # Create your views here.
 
 def home(request):
-    posts = Post.objects.order_by('publishDate')
-
+    posts = Post.objects.order_by('-publishDate')
     return render(request, 'blog/index.html', {'posts' : posts})
 
 # In alphabetical order from here onwards
-def post(request):
-    post = request.GET()
-
-    # return HttpResponse("Here's my first post")
-    return render(request, 'blog/post.html', {'post': request.GET['post'] } )
+def post(request, post_id):
+    post = get_object_or_404(Post,pk=post_id)
+    return render(request, 'blog/post.html', {'post': post } )

@@ -3,19 +3,28 @@
     <head>
         <meta charset="utf-8">
         <title>Blog Post</title>
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
+
     </head>
     <body>
         <h1>My Journey</h1>
         <h2>Blog Post</h2>
 
-        <!-- <form action="{% url 'post' %}"> -->
+
         <form>
             <label for="postTitle">Title: </label>
             <input type="text" name="postTitle" value="{{ post.title }}" />
+        <br />
             <label for="postText">Text: </label>
-            <input type="text" name="projectDescription" value="{{ post.text }}" />
-           <!-- <button type="submit" name="saveProject" value="submit">Save Project</button> -->
-           <!-- the view will save project to database -->
+             <input type="text" name="postText" value="{{ post.text }}"/>
+             <br />
+             <h3>Images</h3>
+             <img src="{{ post.image.url }}"  width=650px alt="{{ post.altImage }}"/>
+
+          <!-- <button type="submit" name="saveProject" value="submit">Save Project</button>
+           the view will save project to database -->
         </form>
 
 
