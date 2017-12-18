@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Portfolio Project List{% endblock title %}
+
+{% block nav_additional_nav_items%}
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'project_list' %}"> Portfolio Projects</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'portfolioAbout' %}">About Portfolio</a>
+</li>
+
+{% endblock nav_additional_nav_items%}
+{% block content %}
+	<h1>My Portfolio</h1>
+	<h2>Project List</h2>
+
+<p>
+	<em>To do:</em> display list provided by the view
+</p>
+{% endblock content %}

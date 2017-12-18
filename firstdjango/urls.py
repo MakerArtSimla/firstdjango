@@ -15,15 +15,21 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-# from portfolio import views
+from django.conf.urls.static import static
+from django.conf import settings
+from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # Including my django app called Portfolios, and all its urls. - preferred method, as it encapsulates the portfolio stuff in the portfolio files.
-    url(r'^', include('portfolio.urls')),
+    url(r'^portfolio/', include('portfolio.urls')),
+    url(r'^blog/', include('blog.urls')),
 
-    #the following would be to directly list a url for a view in the portfolio app - not recommended
-    # url(r'^$', views.hello, name='hello'),
+    #the following are for top level views, for the overall site/django project
+    url(r'^$', views.home, name='home'),
+    url(r'^index', views.home, name='home'),
+    url(r'^home', views.home, name='home'),
+    url(r'^about', views.about, name='about'),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

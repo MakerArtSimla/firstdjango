@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'portfolio' # this is my new Portfolio APP
+    'portfolio', # this is my new Portfolio APP
+    'blog' # this is my Blog APP
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'firstdjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,5 +122,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# 23/11/17 BF Added the followiong will be for our static files, for eample CSS files
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# 23/11/17 BF Added the following for our static files, for example CSS files
+# The STATICFILES_DIRS variable tells Django where to look
+# for static files that are not tied to a particular app
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# added the MEDIA_ROOT variables to control the place where Django uploads files
+# https://docs.djangoproject.com/en/dev/topics/files/
+# and the media url is the associated url for the uploaded file.
+MEDIA_URL = '/assets/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
