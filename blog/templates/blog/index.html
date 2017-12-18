@@ -5,18 +5,31 @@
   {% block content %}
 
     <h1>My Journey</h1>
-    <p>Welcome to My Journey!</p>
+      {% load static %}
+    <img class="img-responsive" style="max-width:100%"
+      src="{% static 'blog/paris-by-paul-dufour.jpg' %}" alt="Paris roofscape with Eiffel Tower"/>
 
+      <p>Welcome to My Journey!</p>
+      <p>Here are the most recent posts:</p>
+
+<!-- TO DO move the styling to a css file -->
     <h2>Recent Posts</h2>
     {% for post in posts.all %}
-      <h3><a href="{% url 'post' post.id %}">{{ post.title }}</a></h3>
-      <p>ID {{ post.id }}:
-        {{ post.publishDateShort }}
-        <br />
-        {{ post.summary }}
-      </p>
+    <article style=" display: block;border: 1px solid grey;">
+      <a href="{% url 'post' post.id %}">{{ post.title }}</a>
+      <div class="row">
+        <div class="col-xs-8 col-md-4">
+          <img class="img-responsive" style="max-height:150px;max-width:100%"  src="{{ post.image.url }}" alt="{{ post.altImage }}"/>
+        </div>
+        <div class="col-xs-16 col-md-8">
+          <p>Nr. {{ post.id }}: {{ post.publishDateShort }}</p>
+          <p>{{ post.summary }} </p>
+        </div>
 
-      <img src="{{ post.image.url }}" height="50px" alt="{{ post.altImage }}"/>
+      </div>
+    </article>
+    <br />
+
     {% endfor %}
 
 {% endblock content %}

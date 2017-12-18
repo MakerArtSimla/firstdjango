@@ -21,4 +21,4 @@ class Post(models.Model):
         return self.publishDate.strftime('%d %b %Y')
 
     def summary(self):
-        return self.text[:100]
+        return self.text[:160]

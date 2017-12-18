@@ -1,40 +1,38 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Blog Post</title>
+{% extends "base.html" %}
 
-        {% load static %}
-        <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
+{% block title %}Journey Post{% endblock title %}
 
-    </head>
-    <body>
-        <h1>My Journey</h1>
-        <h2>Blog Post</h2>
+{% block content %}
 
+  <h1>My Journey</h1>
+    <h2>Blog Post</h2>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="{% url 'post' prevId %}">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="{% url 'post' nextId %}">Next</a></li>
+    </ul>
+  </nav>
 
-        <form>
-            <label for="postTitle">Title: </label>
-            <input type="text" name="postTitle" value="{{ post.title }}" />
-        <br />
-            <label for="postText">Text: </label>
-             <input type="text" name="postText" value="{{ post.text }}"/>
-             <br />
-             <h3>Images</h3>
-             <img src="{{ post.image.url }}"  width=650px alt="{{ post.altImage }}"/>
+    <form>
+      <div class="form-group">
+        <label class="col-form-label" for="postTitle">Title</label>
+        <input class="form-control" type="text" name="postTitle" value="{{ post.title }}" />
+      </div>
+      <div class="form-group">
+        <label class="col-form-label" for="publishDate">Saved Date</label>
+        <input class="form-control" type="text" id="publishDate" name="publishDate" value="{{ post.publishDateShort }}" />
+      </div>
+      <div class="form-group">
+          <label class="col-form-label" for="img">Images</label>
+          <img class="img-responsive form-control" style="max-height:300px;max-width:100%"  src="{{ post.image.url }}"  alt="{{ post.altImage }}"/>
+      </div>
+      <div class="form-group">
+        <label class="col-form-label" for="postText">Text</label>
+        <textarea class="form-control" id="postText" name="postText" rows="10">{{ post.text }}</textarea>
+      </div>
 
-          <!-- <button type="submit" name="saveProject" value="submit">Save Project</button>
-           the view will save project to database -->
-        </form>
+      <!-- <button type="submit" name="saveProject" value="submit">Save Project</button>
+       the view will save project to database -->
+    </form>
 
-
-        <h2>Navigation</h2>
-        <nav>
-             <ul>
-                 <li><a href="{% url 'home' %}">Home</a></li>
-                 <li><a href="{% url 'blogHome' %}">Blog Home</a></li>
-             </ul>
-        </nav>
-
-    </body>
-</html>
+{% endblock content %}
