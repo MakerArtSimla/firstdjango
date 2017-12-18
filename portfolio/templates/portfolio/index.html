@@ -1,38 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Portfolio Home</title>
-</head>
-<body>
-  <h1>Welcome to My Portfolio!</h1>
+{% extends "base.html" %}
 
-  <p>
-      In this portfolio, you can showcase some of your past and current projects, such as:
-      <ul>
-          <li>Personal projects (hobbies, personal endaevours and achievements)</li>
-          <li>Work projects (projects which you contributed to at work)</li>
-          <li>Study projects (learning exercises and practices during formal and informal study)</li>
-      </ul>
-  </p>
+{% block title %}Portfolio Home{% endblock title %}
 
+{% block nav_additional_nav_items%}
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'project_list' %}"> Portfolio Projects</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'portfolioAbout' %}">About Portfolio</a>
+</li>
 
-   <form action="{% url 'addProject' %}">
-      <button type="submit" name="addProject" value="submit">Add New Project</button>
-      <label for="projectName">Project title: </label>
-      <input type="text" name="projectName" value="enter project name"/>
-  </form>
+{% endblock nav_additional_nav_items%}
+{% block content %}
+<h1>Welcome to My Portfolio!</h1>
+<p>
+    In this portfolio, you can showcase some of your past and current projects, such as:
+    <ul>
+        <li>Personal projects (hobbies, personal endaevours and achievements)</li>
+        <li>Work projects (projects which you contributed to at work)</li>
+        <li>Study projects (learning exercises and practices during formal and informal study)</li>
+    </ul>
+</p>
+<h2>See these projects:</h2>
+<a class="nav-link" href="{% url 'project_list' %}"> Portfolio Projects</a>
+<h2>Or create a new one here:</h2>
+ <form action="{% url 'addProject' %}">
+    <button type="submit" name="addProject" value="submit">Add New Project</button>
+    <label for="projectName">Project title: </label>
+    <input type="text" name="projectName" value="enter project name"/>
+</form>
 
-
-
-  <nav>
-      <ul>
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'portfolioHome' %}">Portfolio Home</a></li>
-          <li><a href="{% url 'portfolioAbout' %}">About Portfolio</a></li>
-          <li><a href="{% url 'project_list' %}"> My Projects</a></li>
-      </ul>
-  </nav>
-
-</body>
-</html>
+{% endblock content %}

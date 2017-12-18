@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>About MySite</title>
-    </head>
-    <body>
-        <h1>About FIRST DJANGO SITE</h1>
-        >
-        <p>
-            Copyright (c) 2017 Benedicte Florin All Rights Reserved.
-        </p>
+{% extends "base.html" %}
 
-        <h2>Navigation</h2>
+{% block title %}My Journey {% endblock title %}
 
-        <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-            </ul>
-        </nav>
-    </body>
-</html>
+{% block content %}
+
+<h1>About Stories, my first Django site</h1>
+  I have been following steps from several tutorials, but primarily this one:
+  <ul>
+    <li>
+      <a href="https://www.udemy.com/the-ultimate-beginners-guide-to-django-python-web-dev-website">The ultimate beginner's guide to django & python web dev website</a>
+      by Nick Walter, from Udemy
+    </li>
+  </ul>
+
+{% endblock content %}

@@ -1,30 +1,27 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Portfolio Project Details</title>
-    </head>
-    <body>
-        <h1>My Portfolio</h1>
-        <h2>Project Details</h2>
+{% extends "base.html" %}
 
-        <form action="{% url 'saveProject' %}">
-            <label for="projectName">Project title: </label>
-            <input type="text" name="projectName" value="{{projectName}}" />
-            <label for="projectDescription">Description: </label>
-            <input type="text" name="projectDescription" value="tell me about it" />
-           <button type="submit" name="saveProject" value="submit">Save Project</button>
-           <!-- the view will save project to database -->
-        </form>
+{% block title %}Portfolio Project{% endblock title %}
 
+{% block nav_additional_nav_items%}
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'project_list' %}"> Portfolio Projects</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'portfolioAbout' %}">About Portfolio</a>
+</li>
+{% endblock nav_additional_nav_items%}
 
-        <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'portfolioHome' %}">Portfolio Home</a></li>
-                <li><a href="{% url 'portfolioAbout' %}">About Portfolio</a></li>
-                <li><a href="{% url 'project_list' %}"> My Projects</a></li>
-            </ul>
-        </nav>
-    </body>
-</html>
+{% block content %}
+  <h1>My Portfolio</h1>
+  <h2>Project Details</h2>
+
+  <form action="{% url 'saveProject' %}">
+      <label for="projectName">Project title: </label>
+      <input type="text" name="projectName" value="{{projectName}}" />
+      <label for="projectDescription">Description: </label>
+      <input type="text" name="projectDescription" value="tell me about it" />
+     <button type="submit" name="saveProject" value="submit">Save Project</button>
+     <!-- the view will save project to database -->
+  </form>
+
+{% endblock content %}
