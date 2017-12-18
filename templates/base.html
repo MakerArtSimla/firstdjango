@@ -46,16 +46,20 @@
 
   {# The Document Body #}
   <div id="site-wrapper">
+    <div class = "container">
+
+
       {% block content %}
           if you see this, something is wrong!
       {% endblock content %}
+    </div>
   </div>
 
   {# The Footer #}
-  <div class="footer">
-      <div>
-          <Copyright>(c) 2017 CPP All Rights Reserved.</Copyright>
-      </div>
+  <div class = "container">
+    <div class="footer">
+            <Copyright>(c) 2017 CPP All Rights Reserved.</Copyright>
+    </div>
   </div>
 </body>
 {# Set of blocks that can be used to display JavaScript files #}
